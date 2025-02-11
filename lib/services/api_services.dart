@@ -62,9 +62,8 @@ class ProductApiService extends ApiServices {
     }
   }
 
-  Future<List<Product>> fetchProductsByCategory(String categorySlug) async {
-    final response =
-        await http.get(Uri.parse('$baseUrl/products/category/$categorySlug'));
+  Future<List<Product>> fetchProductsByCategory(String categoryUrl) async {
+    final response = await http.get(Uri.parse(categoryUrl));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);

@@ -23,7 +23,7 @@ class ProductBloc extends Bloc<ProductEvents, ProductState> {
       emit(ProductLoading());
       try {
         final products =
-            await productApiService.fetchProductsByCategory(event.categorySlug);
+            await productApiService.fetchProductsByCategory(event.categoryUrl);
         emit(ProductLoaded(products));
       } catch (e) {
         emit(ProductError(e.toString()));

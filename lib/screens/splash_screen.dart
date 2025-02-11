@@ -75,7 +75,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       FadeAnimatedText(
                         'Valkommen',
                         textStyle: TextStyle(
-                          fontSize: 10,
+                          fontSize: 12,
                           color: const Color.fromARGB(255, 245, 241, 241),
                         ),
                       ),

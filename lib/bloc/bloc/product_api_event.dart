@@ -5,7 +5,7 @@ sealed class ProductEvents {}
 class FetchProductsEvent extends ProductEvents {}
 
 class FetchProductsByCategoryEvent extends ProductEvents {
-  final String categorySlug;
+  final String categoryUrl;
 
-  FetchProductsByCategoryEvent(this.categorySlug);
+  FetchProductsByCategoryEvent(this.categoryUrl);
 }

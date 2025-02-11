@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_task/bloc/bloc/product_api_bloc.dart';
-import 'package:test_task/models/category.dart';
 import 'package:test_task/screens/product_detail_screen.dart';
 import 'package:test_task/services/api_services.dart';
 
 class ProductsByCategoryScreen extends StatelessWidget {
-  final Category category;
+  final String categoryUrl;
 
-  const ProductsByCategoryScreen({super.key, required this.category});
+  const ProductsByCategoryScreen({super.key, required this.categoryUrl});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ProductBloc(ProductApiService())
-        ..add(FetchProductsByCategoryEvent(category.slug)),
+        ..add(FetchProductsByCategoryEvent(categoryUrl)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(category.name),
+          title: Text('Products by category'),
         ),
         body: BlocBuilder<ProductBloc, ProductState>(
           builder: (context, state) {

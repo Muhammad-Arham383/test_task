@@ -42,20 +42,15 @@ class CategoryScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                ProductsByCategoryScreen(category: category),
+                            builder: (context) => ProductsByCategoryScreen(
+                              categoryUrl: category.url,
+                            ),
                           ),
                         );
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          // Expanded(
-                          //   child: Image.network(
-                          //     'https://via.placeholder.com/150', // Placeholder image
-                          //     fit: BoxFit.cover,
-                          //   ),
-                          // ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
