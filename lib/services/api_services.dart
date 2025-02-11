@@ -25,9 +25,10 @@ class ProductApiService extends ApiServices {
   @override
   String get apiUrl => '/products';
 
-  Future<List<Product>> fetchProducts() async {
-    var response = await fetch();
+  Future<List<Product>> fetchProducts({int limit = 100}) async {
+    var response = await fetch(endpoint: '?limit=$limit');
     print(response);
+
     if (response != null && response.containsKey('products')) {
       List<dynamic> products = response['products'];
       return products.map((productMap) => Product.fromMap(productMap)).toList();
@@ -67,7 +68,7 @@ class ProductApiService extends ApiServices {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
-      final List<dynamic> productsJson = data['products'];
+      final List<dynamic> productsJson = data['url'];
       return productsJson.map((json) => Product.fromJson(json)).toList();
     } else {
       throw Exception('Failed to load products');
